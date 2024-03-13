@@ -1,8 +1,14 @@
-FROM maven:3.8.3-openjdk-17 AS build
-COPY . .
-RUN mvn clean package -DskipTests
-
+# Use an official OpenJDK runtime as a parent image
 FROM openjdk:17.0.1-jdk-slim
-COPY  --from=build /target/productapi-0.0.1-SNAPSHOT.jar productapi.jar
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the compiled JAR file into the container
+COPY target/productapi-0.0.1-SNAPSHOT.jar productapi.jar
+
+# Expose the port the application runs on
 EXPOSE 8081
-ENTRYPOINT ["java","-jar","/productapi.jar"]
+
+# Run the JAR file when the container starts
+ENTRYPOINT ["java","-jar","/app/productapi.jar"]
