@@ -11,7 +11,7 @@
 	<groupId>com.springrest</groupId>
 	<artifactId>springrest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DemoRestApi-1</name>
+	<name>productapi</name>
 	<description>This is book store project</description>
 	<properties>
 		<java.version>17</java.version>
